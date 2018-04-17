@@ -1,5 +1,5 @@
 import React from "react";
-import { getFunName } from "../helpers";
+import { getSillyName } from "../helpers";
 
 class StorePicker extends React.Component {
   myInput = React.createRef();
@@ -21,7 +21,7 @@ class StorePicker extends React.Component {
           ref={this.myInput}
           required
           placeholder="Store Name"
-          defaultValue={getFunName()}
+          defaultValue={getSillyName()}
         />
         <button type="submit">Visit Store →</button>
       </form>

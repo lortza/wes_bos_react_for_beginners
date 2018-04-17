@@ -20,7 +20,7 @@ export function slugify(text) {
     .replace(/-+$/, "");
 }
 
-export function getFunName() {
+export function getSillyName() {
   const adjectives = [
     "adorable",
     "beautiful",
@@ -48,6 +48,8 @@ export function getFunName() {
     "helpless",
     "itchy",
     "jealous",
+    "zealous",
+    "vigorous",
     "lazy",
     "mysterious",
     "nervous",
@@ -57,7 +59,20 @@ export function getFunName() {
     "scary",
     "thoughtless",
     "uptight",
-    "worried"
+    "worried",
+    "stifled",
+    "fragrant",
+    "migrant",
+    "militant",
+    "striped",
+    "languid",
+    "whimsical",
+    "joyous",
+    "sticky",
+    "justifiable",
+    "damp",
+    "failed",
+    "victorious"
   ];
 
   const nouns = [
@@ -72,7 +87,7 @@ export function getFunName() {
     "geese",
     "halves",
     "knives",
-    "wives",
+    "husbands",
     "lives",
     "elves",
     "loaves",
@@ -90,7 +105,24 @@ export function getFunName() {
     "crises",
     "phenomena",
     "criteria",
-    "data"
+    "data",
+    "proposals",
+    "shoes",
+    "toenails",
+    "lemons",
+    "pillows",
+    "kittens",
+    "tiles",
+    "urchins",
+    "scales",
+    "buckles",
+    "knobs",
+    "termites",
+    "handshake",
+    "earthquake",
+    "gap",
+    "pickle",
+    "fire-swamp"
   ];
 
   return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;

@@ -20,7 +20,7 @@ export function slugify(text) {
     .replace(/-+$/, "");
 }
 
-export function getFunName() {
+export function getSillyName() {
   const adjectives = [
     "adorable",
     "beautiful",
