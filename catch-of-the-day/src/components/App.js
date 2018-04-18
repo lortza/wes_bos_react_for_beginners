@@ -57,6 +57,17 @@ class App extends React.Component {
     })
   }
 
+  updateFishInInventory = (fishKey, updatedFish) => {
+    // 1. Make a copy of the existing state
+    const existingFishes = {...this.state.fishes}
+    // 2. Update the current fish record
+    existingFishes[fishKey] = updatedFish
+    // 3. Set state to include new fishes
+    this.setState({
+      fishes: existingFishes
+    })
+  }
+
   loadSampleFishes = () => {
     this.setState({
       fishes: sampleFishes
@@ -82,8 +93,13 @@ class App extends React.Component {
             {Object.keys(this.state.fishes).map(fishKey => <Fish key={fishKey} keyName={fishKey} details={this.state.fishes[fishKey]} addToOrder={this.addToOrder}/>)}
           </ul>
         </div>
-          <Order fishes={this.state.fishes} order={this.state.order}/>
-          <Inventory addFishToInventory={this.addFishToInventory} loadSampleFishes={this.loadSampleFishes}/>
+        <Order fishes={this.state.fishes} order={this.state.order}/>
+        <Inventory
+          addFishToInventory={this.addFishToInventory}
+          updateFishInInventory={this.updateFishInInventory}
+          loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
+        />
       </div>
     )
   }
