@@ -4,7 +4,7 @@ const fishes = {
     name: "Pacific Halibut",
     image: "/images/hali.jpg",
     desc:
-      "Everyones favorite white fish. We will cut it to the size you need and ship it.",
+      "Everyone's favorite white fish. We will cut it to the size you need and ship it.",
     price: 1724,
     status: "available"
   },
@@ -24,14 +24,14 @@ const fishes = {
     desc:
       "Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound",
     price: 1684,
-    status: "unavailable"
+    status: "sold out"
   },
 
   fish4: {
     name: "Mahi Mahi",
     image: "/images/mahi.jpg",
     desc:
-      "Lean flesh with a mild, sweet flavor profile, moderately firm texture and large, moist flakes. ",
+      "Lean flesh with a mild, sweet flavor profile, moderately firm texture, and large, moist flakes. ",
     price: 1129,
     status: "available"
   },

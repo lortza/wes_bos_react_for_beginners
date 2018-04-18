@@ -17,9 +17,9 @@ class AddFishForm extends React.Component {
       desc: this.descRef.value.value,
       image: this.imageRef.value.value
     }
-    // Add the new fish to state via the App.addFish method
+    // Add the new fish to state via the App.addFishToInventory method
     // which was passed into this file via props
-    this.props.addFish(fish)
+    this.props.addFishToInventory(fish)
 
     // Clear Fish Form
     e.currentTarget.reset()
