@@ -1,10 +1,14 @@
 import React from "react";
 
+// Import Components
 import Header from './Header'
 import Order from './Order'
 import Inventory from './Inventory'
 import Fish from './Fish'
+
+// Import data
 import sampleFishes from '../sample-fishes'
+import base from '../base'
 
 
 class App extends React.Component {
@@ -13,7 +17,21 @@ class App extends React.Component {
     order: {}
   }
 
-  addFish = (fish) => {
+  // After this component mounts (like DOMload), copy the state to firebase
+  componentDidMount(){
+    const { params } = this.props.match
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes"
+    })
+  }
+  // Unmount the store after we leave it or else
+  // we'll listen for ever and get memory leaks
+  componentWillUnmount(){
+    base.removeBinding(this.ref)
+  }
+
+  addFishToInventory = (fish) => {
     // 1. Make a copy of the existing state
     const newFishes = {...this.state.fishes}
     // 2. Add new fish to fishes const
