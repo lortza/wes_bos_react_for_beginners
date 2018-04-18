@@ -3,7 +3,7 @@ import { formatPrice } from '../helpers'
 
 class Order extends React.Component {
 
-  isAvailable = (fish) => { return fish.status === 'available' }
+  isAvailable = (fish) => { return fish && fish.status === 'available' }
 
   getFish = (key) => { return this.props.fishes[key] }
 
@@ -12,6 +12,9 @@ class Order extends React.Component {
   renderOrder = (key) => {
     let fish = this.getFish(key)
     let count = this.getCount(key)
+    // Make sure the fish is loaded before we continue
+    if(!fish){ return null }
+
     if(this.isAvailable(fish)){
       return <li key={key}>
         {count} lbs {fish.name}
@@ -36,7 +39,7 @@ class Order extends React.Component {
     }, 0)
     return (
       <div className="order-wrap">
-        <h2>Order!</h2>
+        <h2>Order</h2>
         <ul className="order">
           {orderIds.map( this.renderOrder )}
         </ul>

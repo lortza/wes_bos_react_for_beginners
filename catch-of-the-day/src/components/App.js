@@ -20,16 +20,31 @@ class App extends React.Component {
   // After this component mounts (like DOMload), copy the state to firebase
   componentDidMount(){
     const { params } = this.props.match
+    // Check for values in LocalStorage before loading from firebase
+    const localStorageRef = localStorage.getItem(params.storeId)
+    if(localStorageRef){
+      this.setState({
+        order: JSON.parse(localStorageRef)
+      })
+    }
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: "fishes"
     })
   }
+
+  // Checks that a component did update
+  componentDidUpdate(){
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order))
+  }
+
+
   // Unmount the store after we leave it or else
   // we'll listen for ever and get memory leaks
   componentWillUnmount(){
     base.removeBinding(this.ref)
   }
+
 
   addFishToInventory = (fish) => {
     // 1. Make a copy of the existing state
